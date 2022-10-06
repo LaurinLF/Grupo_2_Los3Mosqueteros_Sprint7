@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head.ejs") %>
+    </head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main class ="main-detail">
+            <h2 class="title">DETALLE DEL PRODUCTO</h2>
+        </section>
+        <section class="main-conteiner">
+            <div class="img-product">
+                    <% if (product.Images[0]) { %>
+                        <img src="/images/products/<%= product.Images[0].path %>" alt="imagen producto">
+                    <% } %>  
+                    </div>
+                    <div class="inf-product">
+                        <h4> <%= product.name %> </h4>
+                        <h4>$<%= product.price %></h4>
+                        <h4> <% if(product.discount !=0) {%>
+                            <p class="discount"> 
+                                <%= product.discount %>% OFF</h4>
+                                <% } else{null} %>
+                        
+                        <br>
+                        <h4>Descripción:
+                            <p class="description-v"> <%= product.description %></p>
+                            <br>
+                        </h4>
+                        <h4>Medidas:
+                            <p><%= product.measures %></p>
+                        </h4>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                            <a class="add-cart" href="/products/productCart" role="button"><p>Agregar al carrito</p></a> 
+                        </form>
+                        <!-- Agregado de boton editar y eliminar-->
+                        
+                        <% if (locals.estaLogueado && locals.estaLogueado.admin == true) { %>
+                        <div class="button-admin">
+                            <a href="/products/edit/<%= product.id %>">
+                                <button class="button-edit">Editar <i class="fa-solid fa-file-pen"></i></button>
+                            </a>
+                            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex" class="button-delete">
+                            <button type="submit" class="button-delete">Eliminar</button>
+                            </form>
+
+                            <br>
+                        </div>
+                        <% } %>
+        </section>
+        <%- include("../partials/seguinos.ejs") %>
+        <%- include("../partials/conoceMas.ejs") %>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+</body>
+</html>
+

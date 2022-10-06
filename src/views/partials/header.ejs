@@ -1,0 +1,39 @@
+<header>
+    <div class="top-header">
+         <div class="left-header">
+            <figure class="logo">
+                <a href="/"><img class="logo" src = "/images/logo-b.svg" alt ="logo de marca" a href="/" ></a> 
+            </figure>
+         </div>
+     
+         <div class="right-header">
+             <% if (!locals.estaLogueado) { %>
+                 <div class="links-user">
+                     <a href = "/users/register">Crear cuenta |</a>
+                     <a href = "/users/login">Iniciar sesión</a>
+                 </div> 
+                 <% } else {%>
+                    <div class="links-user">
+                        <a href = "/users/profile">Mi Perfil |</a>
+                        <a href = "/users/logout">Cerrar Sesión</a>
+                    </div>   
+                <% } %>
+                 <form class='form' action="#" method="GET">
+                     <input type="text" id="search" class="form-control" placeholder="Buscar">
+                     <button type="submit" class="submit"><i class="fa fa-search"></i> </button>
+                 </form>
+         </div>
+     </div>    
+     <div class="navbar">
+         <nav>
+             <ul class ="links-page">
+                 <li><a class ="orange" href = "/">HOME </a></li>
+                 <li><a href = "/products">PRODUCTOS </a></li>
+                 <li><a href = "/">OFERTAS</a></li>
+                 <% if (locals.estaLogueado && locals.estaLogueado.admin == true) { %>
+                 <li><a href = "/products/create">CREAR PRODUCTO</a></li>
+                 <% } %>
+             </ul>
+         </nav>
+     </div>
+</header>

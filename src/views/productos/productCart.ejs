@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head.ejs") %>
+    </head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main class="main-carrito">
+        <section>
+            <h2 class="title">CARRITO</h2>
+        </section>
+        <section class="detalle-carrito">
+            <div class="cart-table-container">
+                <table class="cart-table">
+                    <thead>    
+                        <tr>
+                            <td class="cart-table-image">Tu producto</td>
+                            <td class="cart-table-description">Nombre de producto</td>
+                            <td class="cart-table-price">Precio</td>
+                            <td class="cart-table-quantity">Cantidad</td>
+                            <td class="cart-table-total">Total</td>
+                            <td class="cart-table-delete"></td>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <!--
+                    <tr>
+                        <td class="cart-table-image"><img src="/images/escritorio.jpg" alt="Imagen de producto"></td>
+                        <td class="cart-table-description"><p> < product.name %></p></td>
+                        <td class="cart-table-price">< product.price %></td>
+                        <td class="cart-table-quantity"><input type="number" class="product-quantity" name="product-quantity" placeholder="1"></td>
+                        <td class="cart-table-total">< product.price %></td>
+                        <td class="cart-table-delete"><a href="#"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="cart-table-image"><img src="/images/espejo.jpg" alt="Imagen de producto"></td>
+                        <td class="cart-table-description"><p>< product.name %></p></td>
+                        <td class="cart-table-price">< product.price %></td>
+                        <td class="cart-table-quantity"><input type="number" class="product-quantity"" name="product-quantity" placeholder="1"></td>
+                        <td class="cart-table-total">< product.price %></td>
+                        <td class="cart-table-delete"><a href="#"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                --> 
+                       <tr>
+                           <td class="cart-table-image"><img src="/images/products/escritorio.jpg" alt="Imagen de producto"></td>
+                           <td class="cart-table-description"><p>Escritorio Madera Industrial</p></td>
+                           <td class="cart-table-price">$ 13500</td>
+                           <td class="cart-table-quantity"><input type="number" class="product-quantity" name="product-quantity" placeholder="1"></td>
+                           <td class="cart-table-total">$ 13500</td>
+                           <td class="cart-table-delete"><a href="#"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                        <tr>
+                        <td class="cart-table-image"><img src="/images/products/espejo.jpg" alt="Imagen de producto"></td>
+                        <td class="cart-table-description"><p>Espejo de armazon de hierro</p></td>
+                        <td class="cart-table-price">$ 21900</td>
+                        <td class="cart-table-quantity"><input type="number" class="product-quantity" name="product-quantity" placeholder="1"></td>
+                        <td class="cart-table-total">$ 21900</td>
+                        <td class="cart-table-delete"><a href="#"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                </tbody>    
+            </table>
+        </div>
+        <div class="cart-bottom">
+            <div class="total-price-container">
+                <div class="total-price">
+                    <p> Precio total : $ 35400</p>
+                </div>
+            </div>
+            <div class="return">
+                <p><a href="/"><i class="fa fa-arrow-left"></i> ¡Segui Comprando!</a></p>
+            </div>
+            <div class="confirm-cart">
+                <p><a href="#">Confirma tu compra</a></p>
+            </div>
+        </div>
+        </section>
+        <%- include("../partials/seguinos.ejs") %>
+        <%- include("../partials/conoceMas.ejs") %>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+    </body>
+    </html>

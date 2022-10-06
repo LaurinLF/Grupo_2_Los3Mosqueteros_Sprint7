@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head.ejs") %>
+    </head>
+<body>
+
+    <%- include("../partials/header.ejs") %>
+    
+    <main class="main-login-register">
+        <section class="banner">
+            <div>
+                <img src="/images/banner-3.png" alt="Banner de ofertas">
+            </div>
+        </section>
+        <section >
+            <h2 class="title">OFERTAS</h2>
+        </section>
+            <section class="last-visit">
+                <div class="products">
+                    <% saleProducts.forEach ( product => { %>
+                        <a class="link-detail" href="/products/detalle/<%= product.id%>"> 
+                            <article>
+                                <figure>
+                                    <img src="/images/products/<%= product.Images[0]?.path %>" class="product_img" width=250px alt="escritorio">
+                                </figure>
+                                <div class="main-article">
+                                    <h4 class="description"> <%= product.name %> </h4>
+                                    <div class="price-and-discount">
+                                        <p class="price"> $<%= product.price %> </p>
+                                        <% if(product.discount !=0) {%>
+                                            <p class="discount"> 
+                                                <%= product.discount %>% OFF</p>
+                                                <% } else{null} %>
+                                    </div>                            
+                                    <a class="add-cart" href="/products/productCart" role="button"><p>Agregar al carrito</p></a>
+                                </div>
+                            </article>
+                        </a>
+                    <% } ) %>
+
+                    
+                </div>
+            </section>
+            <%- include("../partials/seguinos.ejs") %>
+            <%- include("../partials/conoceMas.ejs") %>
+        
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>

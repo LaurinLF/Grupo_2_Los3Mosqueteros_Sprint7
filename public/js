@@ -1,0 +1,56 @@
+window.addEventListener("load", function() {
+    let ValEmail = document.querySelector("#email")
+    let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+    function emailValido() {
+        let email = document.querySelector("#email")
+        if(!emailRegex.test(ValEmail.value)) {
+            email.innerHTML = "Debes colocar un formato de email válido"
+            email.classList.add("is-invalid")
+            email.classList.remove("is-valid")
+            return false;
+        } else {
+            email.innerHTML = "Debes colocar un formato de email válido"
+            email.classList.remove("is-invalid")
+            email.classList.add("is-valid")
+            return true;
+        }
+    }
+
+    ValEmail.addEventListener("input", emailValido)
+
+
+    let validacionContraseña = document.querySelector("#password")
+    let PassRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i
+
+    function contraseñaValida() {
+        let password = document.querySelector("#password")
+        if(validacionContraseña.value.length < 8) {
+            password.innerHTML = "La contraseña debe contener al menos 8 caracteres"
+            password.classList.remove("is-valid")
+            password.classList.add("is-invalid")
+        } else if(!PassRegex.test(ValEmail.value)) {
+            password.innerHTML = "La contraseña debe tener una mayúscula, una minúscula, un número y caracter especial"
+            password.classList.add("is-invalid")
+            password.classList.remove("is-valid")
+            return false;
+        } else {
+            password.innerHTML = "La contraseña debe contener al menos 8 caracteres"
+            password.classList.remove("is-invalid")
+            password.classList.add("is-valid")
+            return true;
+        }
+    }
+
+    campoContraseña.addEventListener("input", contraseñaValida);
+
+    let formulario = document.querySelector("form")
+
+    formulario.addEventListener("submit", function(e) {
+        e.preventDefault()
+
+        if(emailValido()  && contraseñaValida()) {
+            formulario.submit()
+        }
+    })
+})

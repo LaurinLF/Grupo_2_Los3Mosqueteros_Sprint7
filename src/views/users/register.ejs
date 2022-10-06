@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head.ejs") %>
+    </head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main class="main-login-register">
+        
+            <h2 class="title">CREAR CUENTA</h2>
+        
+            <form class="login-register-form" action="/users/register" method="POST" enctype="multipart/form-data">
+                <div>
+                    <label for="name">Nombre</label>
+                    <input class='control' type="text" id="name" name="firstname" placeholder="Ej. Juan"
+                    value= "<%= locals.oldData ? oldData.firstname: null %>">
+						
+                    <% if (locals.errors && errors.firstname) { %>
+                        <div class="errorValidacion">
+                            <p><%= errors.firstname.msg %></p>
+                        </div> 
+                    <% } %>
+                </div>
+                <div>
+                    <label for="name">Apellido</label>
+                    <input class='control' type="text" id="name" name="lastname" placeholder="Ej. Perez"
+                    value= "<%= locals.oldData ? oldData.lastname: null %>">
+						
+                    <% if (locals.errors && errors.lastname) { %>
+                        <div class="errorValidacion">
+                            <p><%= errors.lastname.msg %></p>
+                        </div> 
+                    <% } %>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input class='control' type="email" id="email" name="email" placeholder="ejemplo@gmail.com" 
+                    value= "<%= locals.oldData ? oldData.email: null %>">
+						
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="errorValidacion">
+                            <p><%= errors.email.msg %></p>
+                        </div> 
+                    <% } %>
+                </div>
+                <div>
+                    <label for="telephone">Teléfono</label>
+                    <input class='control' type="text" id="telephone" name="telephone" placeholder="3510000000"
+                    value= "<%= locals.oldData ? oldData.telephone: null %>">
+						
+                    <% if (locals.errors && errors.telephone) { %>
+                        <div class="errorValidacion">
+                            <p><%= errors.telephone.msg %></p>
+                        </div> 
+                    <% } %>
+                </div>
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input class='control' type="password" id="password" name="password" placeholder="Contraseña" 
+                    value= "<%= locals.oldData ? oldData.password: null %>">
+						
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="errorValidacion">
+                            <p><%= errors.password.msg %></p>
+                        </div> 
+                    <% } %>
+                </div>
+                <div>
+                    <label for="password">Repetir Contraseña</label>
+                    <input class='control' type="password" id="password" name="checkpassword" placeholder="Contraseña"
+                    value= "<%= locals.oldData ? oldData.checkpassword: null %>">
+						
+                    <% if (locals.errors && errors.checkpassword) { %>
+                        <div class="errorValidacion">
+                            <p><%= errors.checkpassword.msg %></p>
+                        </div> 
+                    <% } %>
+                </div>
+                <div>
+                    <label for="image">Avatar</label>
+                    <input class='control' type="file" id="image" name="avatar" multiple accept=".jpg, .png, .jpeg, .svg"
+                    value= "<%= locals.oldData ? oldData.image: null %>">
+						
+                    <% if (locals.errors && errors.image) { %>
+                        <div class="errorValidacion">
+                            <p><%= errors.image.msg %></p>
+                        </div> 
+                    <% } %>
+                </div>
+                <div class="login-register-btn">
+                    <input class="button" type="submit" value="CREAR">
+                    <p>¿Ya tenés cuenta? <a href="/users/login">¡Iniciá sesión!</a></p>
+                </div>
+            </form>   
+        </section>
+        <%- include("../partials/seguinos.ejs") %>
+        <%- include("../partials/conoceMas.ejs") %>
+    
+    </main>   
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>

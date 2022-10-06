@@ -1,0 +1,113 @@
+<form class="login-register-form" action="/products" method="POST" enctype="multipart/form-data">
+    <div>
+        <label for="name">Nombre del Producto</label>
+        <input class='control' type="text" id="name" name="name" placeholder="Mesa Ratona" value="<%= locals.oldData && oldData.name %>">
+        <% if (locals.errors && errors.name) { %>
+            <div class="errorValidacion">
+                <p><%= errors.name.msg %></p>
+            </div> 
+        <% } %>
+    </div>
+    <div>
+        <label for="description">Descripción</label>
+        <textarea class='control' id="description" name="description" placeholder="Comentario del producto" value=""> <%= locals.oldData && oldData.description %></textarea>
+        <% if (locals.errors && errors.description) { %>
+            <div class="errorValidacion">
+                <p><%= errors.description.msg %></p>
+            </div> 
+        <% } %>
+    </div>
+    <div>
+        <label for="image">Imagen</label>
+        <input class='control' type="file" id="image" name="image" multiple accept=".jpg, .png, .jpeg, .svg .GIF">
+        <% if (locals.errors && errors.image) { %>
+            <div class="errorValidacion">
+                <p><%= errors.image.msg %></p>
+            </div> 
+        <% } %>
+    </div>
+    <div>
+        <label for="size">Medidas</label>
+        <input class='control' type="text" id="measures" name="measures" placeholder="Largo - Ancho - Alto" value="<%= locals.oldData && oldData.measures %>">
+        <% if (locals.errors && errors.measures) { %>
+            <div class="errorValidacion">
+                <p><%= errors.measures.msg %></p>
+            </div> 
+        <% } %>
+    </div>
+    <div>
+        <label for="price">Precio</label>
+        <input class='control' type="number" id="price" name="price" placeholder="$10000" value="<%= locals.oldData && oldData.price %>">
+        <% if (locals.errors && errors.price) { %>
+            <div class="errorValidacion">
+                <p><%= errors.price.msg %></p>
+            </div> 
+        <% } %>
+    </div>
+    <div>
+        <label for="discount">Descuento</label>
+        <input class='control' type="number" id="discount" name="discount" placeholder="10" value="<%= locals.oldData && oldData.discount %>">
+        <% if (locals.errors && errors.discount) { %>
+            <div class="errorValidacion">
+                <p><%= errors.discount.msg %></p>
+            </div> 
+        <% } %>
+    </div>
+    <div>
+        <label for="id_category">Categoría</label>
+        <select name="id_category" id="id_category" class="category-control">
+            <option value="">Elegí</option>
+            <% if (categories) {%> 
+                <% categories.forEach(category => { %> 
+                    <option value="<%=category.id%>" 
+                        <%= locals.oldData && oldData.id_category == category.id ? 'selected' : null %>
+                        >
+                        <%=category.name%>
+                    </option>
+                <% }); %> 
+                <% } %> 
+           <!--
+               <option value="2">Mesas</option>
+               <option value="4">Mesas Ratonas</option>
+               <option value="1">Escritorios</option>
+               <option value="3">Espejos</option>*/
+               
+            -->
+            </select>
+        <% if (locals.errors && errors.id_category) { %>
+            <div class="errorValidacion">
+                <p><%= errors.id_category.msg %></p>
+            </div> 
+        <% } %>
+    </div>
+    <div>
+        <label for="id_color">Color</label>
+        <select name="id_color" id="id_color" class="control">
+            <option value="">Elegí</option>
+            <% if (colors) {%> 
+                <% colors.forEach(color => { %> 
+                    <option value="<%=color.id%>" 
+                        <%= locals.oldData && oldData.id_color == color.id ? 'selected' : null %>
+                        >
+                        <%=color.name%>
+                    </option>
+                <% }); %> 
+                <% } %> 
+            <!--
+                <option value="1">Negro</option>
+                <option value="2">Marrón</option>
+                <option value="3">Blanco</option>
+            -->
+            </select>
+            <% if (locals.errors && errors.id_colors) { %>
+                <div class="errorValidacion">
+                    <p><%= errors.id_colors.msg %></p>
+                </div> 
+            <% } %>
+    </div>
+
+    <div class="create-btn">
+        <input class="button" type="submit" value="GUARDAR">
+        <input class="button" type="reset" value="LIMPIAR">
+    </div>
+</form> 

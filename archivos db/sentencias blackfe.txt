@@ -1,0 +1,13 @@
+
+sequelize model:generate --name Categories --attributes name:string
+
+sequelize model:generate --name Colors --attributes name:string
+
+sequelize model:generate --name Users --attributes firstname:string,lastname:string,email:string,password:string,telephone:string,avatar:string,admin:boolean
+
+sequelize model:generate --name Products --attributes id_product:integer,name:string,price:float,description:string,measures:string,discount:integer,stock:integer,id_category:integer,id_color:integer
+
+sequelize model:generate --name Images --attributes id_product:integer,path:string
+
+sequelize model:generate --name Products_users --attributes id_product:integer,id_user:integer
+
