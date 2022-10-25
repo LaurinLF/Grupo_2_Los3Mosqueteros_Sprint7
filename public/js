@@ -1,4 +1,5 @@
-window.addEventListener("load", function() {
+//Esto lo tomamos de base y lo modificamos directamente en los middleware
+/*window.addEventListener("load", function() {
     let ValEmail = document.querySelector("#email")
     let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
@@ -53,4 +54,4 @@ window.addEventListener("load", function() {
             formulario.submit()
         }
     })
-})
+})*/

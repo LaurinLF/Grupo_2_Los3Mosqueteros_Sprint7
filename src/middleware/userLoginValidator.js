@@ -1,4 +1,5 @@
 const { body } = require("express-validator")
+//const RegExpEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i 
 
 const userLoginValidator = [
 	body('email')
@@ -7,7 +8,7 @@ const userLoginValidator = [
    
 	body('password')
 		.notEmpty().withMessage('Debes escribir una contraseña').bail()
-		.isLength({ min: 8 }).withMessage('Debes escribir una contraseña con más de 8 caracteres')
+		.isLength({ min: 8 }).withMessage('Debes escribir una contraseña con al menos 8 caracteres')
 ]
 
 module.exports = userLoginValidator;
