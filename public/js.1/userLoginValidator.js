@@ -1,10 +1,10 @@
 window.addEventListener('load', function(){
     const RegExpEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i 
 
-    /* Capturamos el form */
+   
     const form = document.querySelector('.loginRegisterForm')
     
-    /* input */
+   
     const emailLogin = document.querySelector('input.control')
     const passwordLogin = document.querySelector('input.control')
     

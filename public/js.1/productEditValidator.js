@@ -1,16 +1,13 @@
 window.addEventListener('load', function(){
 
-    /* Capturamos el form */
 
     const form = document.querySelector('.loginRegisterForm')
    
 
-    /* Capturamos el resto de los elementos del form */
     const name = document.getElementById('name')
     const description = document.getElementById('description')
     const image = document.getElementById('image')
-    
-    /* Expresiones regulares */
+  
     const RegExpImage = /(.jpg|.jpeg|.png|.gif)$/i
 
     let errors = {}

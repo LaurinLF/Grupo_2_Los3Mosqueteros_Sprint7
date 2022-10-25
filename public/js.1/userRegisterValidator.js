@@ -2,7 +2,7 @@ window.addEventListener('load', function(){
 
     const form = document.querySelector('.loginRegisterForm')
     
-    /*  inputs */
+    
     const avatar = document.querySelector('input#avatar')
     const firstName = document.querySelector('input#firstName')
     const lastName = document.querySelector('input#lastName')
@@ -11,7 +11,7 @@ window.addEventListener('load', function(){
     const checkpassword = document.querySelector('input#checkpassword')
 
     
-    /* Regex */
+    
     const RegExpEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i
     const RegExpPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i
     const RegExpAvatar = /(.jpg|.jpeg|.png|.gif)$/i
