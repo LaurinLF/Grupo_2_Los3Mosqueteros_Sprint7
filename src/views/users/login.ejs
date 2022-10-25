@@ -15,7 +15,7 @@
        <!-- <section class="efecto-principal">
             <h2 class="lines-effect">INICIAR SESIÓN</h2>
         </section>-->
-        <form class="login-register-form" action="/users/login" method="POST">
+        <form class="loginRegisterForm" action="/users/login" method="POST">
             <div>
                 <label for="email">Email</label>
                 <input class='control' type="email" id="email" name="email" placeholder="ejemplo@gmail.com"
@@ -39,11 +39,11 @@
                     </div> 
                 <% } %>
             </div>
-            <div class="login-register-btn" id="remember">
+            <div class="loginRegisterBtn" id="remember">
                 <label for="remember"><p>Recordar mi usuario</p></label>
                 <input type="checkbox" id="remember" name="rememberUser">
             </div>
-            <div class="login-register-btn">
+            <div class="loginRegisterBtn">
                 <input class="button" type="submit" value="INICIAR SESIÓN">
                 <p>¿No tenés cuenta? <a href="/users/register">Registrate acá!</a></p>
             </div>
@@ -53,5 +53,6 @@
     
     </main>   
     <%- include("../partials/footer.ejs") %>
+    <script src="/js/userLoginValidator.js"></script>
 </body>
 </html>

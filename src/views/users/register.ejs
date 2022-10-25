@@ -9,10 +9,10 @@
         
             <h2 class="title">CREAR CUENTA</h2>
         
-            <form class="login-register-form" action="/users/register" method="POST" enctype="multipart/form-data">
+            <form class="loginRegisterForm" action="/users/register" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="name">Nombre</label>
-                    <input class='control' type="text" id="name" name="firstname" placeholder="Ej. Juan"
+                    <input class='control' type="text" id="name" name="firstName" placeholder="Ej. Juan"
                     value= "<%= locals.oldData ? oldData.firstname: null %>">
 						
                     <% if (locals.errors && errors.firstname) { %>
@@ -23,7 +23,7 @@
                 </div>
                 <div>
                     <label for="name">Apellido</label>
-                    <input class='control' type="text" id="name" name="lastname" placeholder="Ej. Perez"
+                    <input class='control' type="text" id="name" name="lastName" placeholder="Ej. Perez"
                     value= "<%= locals.oldData ? oldData.lastname: null %>">
 						
                     <% if (locals.errors && errors.lastname) { %>
@@ -87,7 +87,7 @@
                         </div> 
                     <% } %>
                 </div>
-                <div class="login-register-btn">
+                <div class="loginRegisterBtn">
                     <input class="button" type="submit" value="CREAR">
                     <p>¿Ya tenés cuenta? <a href="/users/login">¡Iniciá sesión!</a></p>
                 </div>
@@ -98,5 +98,6 @@
     
     </main>   
     <%- include("../partials/footer.ejs") %>
+    <script src="/js/userRegisterValidator.js"></script>
 </body>
 </html>

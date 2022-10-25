@@ -1019,7 +1019,7 @@ h2{
 }
 
 
-.login-register-form{
+.loginRegisterForm{
     width: 80%;
     margin: auto;
     display: flex;
@@ -1027,13 +1027,13 @@ h2{
     justify-content: flex-start;
     padding: 40px 0px 40px;
 }
-.login-register-form div{
+.loginRegisterForm div{
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
-.login-register-form label{
+.loginRegisterForm label{
     font-size:14px;
     font-weight: 450;
     margin-bottom: 2px;
@@ -1077,15 +1077,15 @@ h2{
     color: black;
 
 }
-.login-register-form p{
+.loginRegisterForm p{
     font-size:12px;
     padding:0px;
 }
-.login-register-form a{
+.loginRegisterForm a{
     text-decoration: none;
     color: black
 }
-.login-register-form a:hover{
+.loginRegisterForm a:hover{
     text-decoration: underline;
     color: black
 }
@@ -1107,7 +1107,7 @@ h2{
     color:#E04B3C;
     
 }
-.login-register-btn{
+.loginRegisterBtn{
     display: flex;
     padding-top: 10px;
     flex-direction: column;
@@ -1234,7 +1234,7 @@ section.banner div img{
     .comentario article  {
         width: 30%;
     }
-    .login-register-form div {
+    .loginRegisterForm div {
         width: 60%;
         margin: auto;
     }
