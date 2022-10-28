@@ -5,10 +5,13 @@ window.addEventListener('load', function(){
    
 
   
-    const name = document.getElementById('name')
-    const description = document.getElementById('description')
-    const image = document.getElementById('image')
+    const name = document.querySelector('input#name')
+    const description = document.querySelector('textarea#description')
+    const image = document.querySelector('input#image')
    
+    const errorName = document.querySelector('div#errorName')
+    const errorDescription = document.querySelector('div#errorDescription')
+    const errorImage = document.querySelector('div#errorImage')
 
    
     const RegExpImage = /(.jpg|.jpeg|.png|.gif)$/
@@ -19,11 +22,13 @@ window.addEventListener('load', function(){
 
         feedback = ""
     
-        const errorValidacion = document.querySelector('#errorValidacion')
+        // const errorValidacion = document.querySelector('#errorValidacion')
     
         if(name.value.trim() == ""){
             feedback = "Debes ingresar el nombre del producto"
-        } 
+        } else if (name.value.length < 5){
+            feedback = "Tu nombre debe tener al menos 5 caracteres"
+        }
     
         
         if(feedback){
@@ -36,17 +41,19 @@ window.addEventListener('load', function(){
             delete errors.name 
         }
     
-        errorValidacion.innerText = feedback
+        errorName.innerText = feedback
     }
 
     let descriptionVal = () => {
 
         feedback = ""
     
-        const errorValidacion = document.querySelector('#errorValidacion')
+        // const errorValidacion = document.querySelector('#errorValidacion')
     
         if(description.value.trim() == ""){
             feedback = "Debes ingresar la descripción del producto"
+        } else if (description.value.length < 20){
+            feedback = "Tu nombre debe tener al menos 20 caracteres"
         } 
     
         
@@ -62,14 +69,14 @@ window.addEventListener('load', function(){
             
         }
     
-        errorValidacion.innerText = feedback
+        errorDescription.innerText = feedback
     }
 
     let imageVal = (e) => {
 
         feedback = ""
     
-        const errorValidacion = document.querySelector('#errorValidacion')
+        // const errorValidacion = document.querySelector('#errorValidacion')
         
         if(image.value == "" ){
             feedback = "Debes cargar al menos 1 imágen del producto"
@@ -103,7 +110,7 @@ window.addEventListener('load', function(){
             delete errors.image 
         }
     
-        errorValidacion.innerText = feedback
+        errorImage.innerText = feedback
     }
 
     form.addEventListener("submit", function(e){

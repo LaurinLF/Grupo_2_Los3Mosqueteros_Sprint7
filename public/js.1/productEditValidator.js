@@ -4,23 +4,31 @@ window.addEventListener('load', function(){
     const form = document.querySelector('.loginRegisterForm')
    
 
-    const name = document.getElementById('name')
-    const description = document.getElementById('description')
-    const image = document.getElementById('image')
   
-    const RegExpImage = /(.jpg|.jpeg|.png|.gif)$/i
+    const name = document.querySelector('input#name')
+    const description = document.querySelector('textarea#description')
+    const image = document.querySelector('input#image')
+   
+    const errorName = document.querySelector('div#errorName')
+    const errorDescription = document.querySelector('div#errorDescription')
+    const errorImage = document.querySelector('div#errorImage')
+
+   
+    const RegExpImage = /(.jpg|.jpeg|.png|.gif)$/
 
     let errors = {}
     
-    let nameValidationEdit = () => {
+    let nameValProduct = () => {
 
         feedback = ""
     
-        const errorValidacion = document.querySelector('#errorValidacion')
+        // const errorValidacion = document.querySelector('#errorValidacion')
     
         if(name.value.trim() == ""){
             feedback = "Debes ingresar el nombre del producto"
-        } 
+        } else if (name.value.length < 5){
+            feedback = "Tu nombre debe tener al menos 5 caracteres"
+        }
     
         
         if(feedback){
@@ -33,17 +41,19 @@ window.addEventListener('load', function(){
             delete errors.name 
         }
     
-        errorValidacion.innerText = feedback
+        errorName.innerText = feedback
     }
 
-    let descriptionValidationEdit = () => {
+    let descriptionVal = () => {
 
         feedback = ""
     
-        const errorValidacion = document.querySelector('#errorValidacion')
+        // const errorValidacion = document.querySelector('#errorValidacion')
     
         if(description.value.trim() == ""){
             feedback = "Debes ingresar la descripción del producto"
+        } else if (description.value.length < 20){
+            feedback = "Tu nombre debe tener al menos 20 caracteres"
         } 
     
         
@@ -55,19 +65,21 @@ window.addEventListener('load', function(){
             description.classList.remove('isInvalid')
             description.classList.add('isValid')
             delete errors.description 
+
+            
         }
     
-        errorValidacion.innerText = feedback
+        errorDescription.innerText = feedback
     }
 
-    let imageValidationEdit = () => {
+    let imageVal = (e) => {
 
         feedback = ""
     
-        const errorValidacion = document.querySelector('#errorValidacion')
+        // const errorValidacion = document.querySelector('#errorValidacion')
         
         if(image.value == "" ){
-            feedback = "Debes cargar imágenes del producto"
+            feedback = "Debes cargar al menos 1 imágen del producto"
         } 
 
         if(image.value != "" ){
@@ -81,11 +93,13 @@ window.addEventListener('load', function(){
             for (let i = 0; i < files.length; i++){
                     let img = files[i].name
                     if(img.match(RegExpImage) == null){
-                        feedback = "Los archivos requeridos son jpg, jpeg y png"
+                        feedback = "Los archivos requeridos son jpg, jpeg, png y GIF"
                     }
             }
             
         }
+
+        
         if(feedback){
             image.classList.remove('isValid')
             image.classList.add('isInvalid')
@@ -96,15 +110,15 @@ window.addEventListener('load', function(){
             delete errors.image 
         }
     
-        errorValidacion.innerText = feedback
+        errorImage.innerText = feedback
     }
 
     form.addEventListener("submit", function(e){
         e.preventDefault()
     
-        imageValidationEdit()
-        descriptionValidationEdit()
-        nameValidationEdit()
+        imageVal()
+        descriptionVal()
+        nameValProduct()
     
         if(Object.keys(errors).length){
             e.preventDefault()
@@ -113,7 +127,7 @@ window.addEventListener('load', function(){
         }
     })
 
-    name.addEventListener('input', nameValidationEdit)
-    description.addEventListener('input', descriptionValidationEdit)
-    image.addEventListener('input', imageValidationEdit)
+    name.addEventListener('input', nameValProduct)
+    description.addEventListener('input', descriptionVal)
+    image.addEventListener('input', imageVal)
 })

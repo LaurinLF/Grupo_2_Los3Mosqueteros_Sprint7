@@ -2,13 +2,19 @@ window.addEventListener('load', function(){
 
     const form = document.querySelector('.loginRegisterForm')
     
-    
-    const avatar = document.querySelector('input#avatar')
-    const firstName = document.querySelector('input#firstName')
+    const avatar = document.querySelector('input#image')
+    const firstName = document.querySelector('input#name')
     const lastName = document.querySelector('input#lastName')
     const email = document.querySelector('input#email')
     const password = document.querySelector('input#password')
-    const checkpassword = document.querySelector('input#checkpassword')
+    const checkPassword = document.querySelector('input#checkPassword')
+
+    const errorAvatar = document.querySelector('div#errorAvatar')
+    const errorName = document.querySelector('div#errorName')
+    const errorLastName = document.querySelector('div#errorLastName')
+    const errorEmail = document.querySelector('div#errorEmail')
+    const errorPassword = document.querySelector('div#errorPassword')
+    const errorCheck = document.querySelector('div#errorCheck')
 
     
     
@@ -21,9 +27,7 @@ window.addEventListener('load', function(){
     let avatarVal = () => {
         
         feedback = ""
-    
-        const errorValidacion = document.querySelector('div#errorValidacion')
-    
+        
         if(!RegExpAvatar.exec(avatar.value)){
             feedback = "Los archivos permitidos son jpg, jpeg, png y gif"
         } 
@@ -39,15 +43,13 @@ window.addEventListener('load', function(){
             delete errors.avatar 
         }
     
-        errorValidacion.innerText = feedback
+        errorAvatar.innerText = feedback
     }
     
     let firstNameVal = () =>{
     
         let feedback = ""
-    
-        const errorValidacion = document.querySelector('div#errorValidacion')
-    
+        
         if(firstName.value.trim() == ""){
             feedback = "Debes ingresar tu nombre"
         } else if (firstName.value.length < 2){
@@ -65,16 +67,14 @@ window.addEventListener('load', function(){
             delete errors.firstName 
         }
     
-        errorValidacion.innerText = feedback
+        errorName.innerText = feedback
         
     }
     
     let lastNameVal = () =>{
     
         let feedback = ""
-    
-        const errorValidacion = document.querySelector('div#errorValidacion')
-    
+        
         if(lastName.value.trim() == ""){
             feedback = "Debes ingresar tu apellido"
         }else if (lastName.value.length < 2){
@@ -91,7 +91,7 @@ window.addEventListener('load', function(){
             delete errors.lastName 
         }
     
-        errorValidacion.innerText = feedback
+        errorLastName.innerText = feedback
         
     }
 
@@ -100,9 +100,7 @@ window.addEventListener('load', function(){
     
     
         let feedback = ""
-    
-        let errorValidacion = document.querySelector('div#errorValidacion')
-    
+        
         if(email.value.trim() == ""){
             feedback = "El campo de email no puede estar vacío"
         }else if (!RegExpEmail.test(email.value)){
@@ -120,15 +118,13 @@ window.addEventListener('load', function(){
             delete errors.email
         }
     
-        errorValidacion.innerText = feedback
+        errorEmail.innerText = feedback
     }
     
     let passwordVal = () =>{
     
         let feedback = ""
-    
-        let errorValidacion = document.querySelector('div#errorValidacion')
-    
+        
         if(password.value.trim() == ""){
             feedback = "Debes ingresar una contraseña"
         } else if (password.value.length < 8){
@@ -147,32 +143,30 @@ window.addEventListener('load', function(){
             delete errors.password 
         }
     
-        errorValidacion.innerText = feedback
+        errorPassword.innerText = feedback
     }
     
     let checkpasswordVal = () =>{
     
         let feedback = ""
-    
-        const errorValidacion = document.querySelector('div#errorValidacion')
-    
-        if(checkpassword.value.trim() == ""){
+        
+        if(checkPassword.value.trim() == ""){
             feedback = "Debes reingresar la contraseña"
-        } else if (checkpassword.value != password.value){
+        } else if (checkPassword.value != password.value){
             feedback = "Las contraseñas no coinciden"
         }
     
         if(feedback){
-            checkpassword.classList.remove('isValid')
-            checkpassword.classList.add('isInvalid')
-            errors.checkpassword = feedback
+            checkPassword.classList.remove('isValid')
+            checkPassword.classList.add('isInvalid')
+            errors.checkPassword = feedback
         } else { 
-            checkpassword.classList.remove('isInvalid')
-            checkpassword.classList.add('isValid')
-            delete errors.checkpassword 
+            checkPassword.classList.remove('isInvalid')
+            checkPassword.classList.add('isValid')
+            delete errors.checkPassword 
         }
     
-        errorValidacion.innerText = feedback
+        errorCheck.innerText = feedback
     }
     
     form.addEventListener("submit", function(e){
@@ -196,6 +190,6 @@ window.addEventListener('load', function(){
     lastName.addEventListener("input", lastNameVal)
     email.addEventListener("input", emailVal)
     password.addEventListener("input", passwordVal)
-    checkpassword.addEventListener("input", checkpasswordVal)
+    checkPassword.addEventListener("input", checkpasswordVal)
     avatar.addEventListener("input", avatarVal)
     })

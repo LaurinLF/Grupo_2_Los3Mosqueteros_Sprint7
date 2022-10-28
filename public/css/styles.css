@@ -1244,7 +1244,14 @@ section.banner div img{
     }
 }
 
+.isInvalid{
+    border: solid 2px rgba(240, 12, 12, 0.471)
+}
 
+
+.isValid{
+    border:solid 2px rgba(45, 114, 45, 0.5)
+}
 
 
 
