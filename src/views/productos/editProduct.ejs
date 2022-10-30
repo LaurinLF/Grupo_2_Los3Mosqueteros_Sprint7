@@ -14,7 +14,7 @@
                 <div>
                     <label for="name">Nombre del Producto</label>
                     <input class='control' type="text" id="name" name="name" value="<%= productToEdit.name %> ">
-                    <div id="errorName"></div>
+                    <div id="errorName" class="errorValidacion"></div>
                     <% if (locals.errors && errors.name) { %>
                         <div class="errorValidacion">
                             <p><%= errors.name.msg %></p>
@@ -24,7 +24,7 @@
                 <div>
                     <label for="description">Descripción</label>
                     <textarea class='control' id="description" name="description" placeholder="Comentario del producto" value=""><%= locals.productToEdit && productToEdit.description || locals.oldData && oldData.description %></textarea>
-                    <div id="errorDescription"></div>
+                    <div id="errorDescription" class="errorValidacion"></div>
                     <% if (locals.errors && errors.description) { %>
                         <div class="errorValidacion">
                             <p><%= errors.description.msg %></p>
@@ -34,7 +34,7 @@
                 <div>
                     <label for="image">Imagen</label>
                     <input class='control' type="file" id="image" name="image" multiple accept=".jpg, .png, .jpeg, .svg"> 
-                    <div id="errorImage"></div>
+                    <div id="errorImage" class="errorValidacion"></div>
                     <% if (locals.errors && errors.image) { %>
                         <div class="errorValidacion">
                             <p><%= errors.image.msg %></p>

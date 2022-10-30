@@ -74,7 +74,7 @@ const userController = {
                 ...req.body,
                 password: bcrypt.hashSync(req.body.password, 10),
                 checkpassword: bcrypt.hashSync(req.body.checkpassword, 10),
-                image: file ? file.filename : ["default-user.svg"]
+                avatar : file ? file.filename : ["default-user.svg"]
             };
     
             await Users.create({

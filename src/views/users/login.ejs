@@ -20,7 +20,7 @@
                 <label for="email">Email</label>
                 <input class='control' type="email" id="email" name="email" placeholder="ejemplo@gmail.com"
                 value='<%= locals.oldData ? oldData.email : null %>'>
-                <div id="emailErrorFront"></div>
+                <div id="emailErrorFront" class="errorValidacion"></div>
 
                 <% if (locals.errors && errors.email) { %>
                     <div class="errorValidacion">
@@ -32,7 +32,7 @@
                 <label for="password">Contraseña</label>
                 <input class='control' type="password" id="password" name="password" placeholder="Contraseña"
                 value= '<%= locals.oldData ? oldData.password : null %>'>
-                <div id="passwordErrorFront"></div>
+                <div id="passwordErrorFront" class="errorValidacion"></div>
                 <a href=#><p>¿Olvidaste tu contraseña?</p></a>
 
                 <% if (locals.errors && errors.password) { %>

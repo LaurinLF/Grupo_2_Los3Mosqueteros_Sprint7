@@ -175,7 +175,7 @@ window.addEventListener('load', function(){
     form.addEventListener("submit", function(e){
         e.preventDefault()
     
-        //avatarVal()
+        avatarVal()
         firstNameVal()
         lastNameVal()
         emailVal()

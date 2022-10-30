@@ -754,6 +754,9 @@ div.errorValidacion {
     width: 100%;
 }
 
+div.errorValidacion {
+    color:rgb(200, 59, 59);
+}
 div.errorValidacion p {
     color:rgb(200, 59, 59);
 }

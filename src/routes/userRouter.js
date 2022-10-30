@@ -7,7 +7,7 @@ const userController = require("../controllers/userController")
 
 // Middleware - multer
 const multerMiddleware = require('../middleware/middlemulter');
-const upload = multerMiddleware('/images/users', 'User');
+const upload = multerMiddleware('images/users', 'User');
 
 // Express-Validator
 const userRegisterValidator = require("../middleware/userRegisterValidator");
@@ -19,7 +19,7 @@ const guestMiddleware = require("../middleware/guestMiddleware");
 
 // rutas para registrar usuarios
 router.get("/register", guestMiddleware, userController.register)
-router.post('/register', upload.single("avatar"), userRegisterValidator, userController.processRegister);
+router.post('/register', upload.single('avatar'), userRegisterValidator, userController.processRegister);
 
 // rutas para login de usuarios
 router.get("/login", guestMiddleware, userController.login)

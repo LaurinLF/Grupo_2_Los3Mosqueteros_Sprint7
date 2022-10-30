@@ -14,7 +14,7 @@
                     <label for="name">Nombre</label>
                     <input class='control' type="text" id="name" name="firstname" placeholder="Ej. Juan"
                     value= "<%= locals.oldData ? oldData.firstname: null %>">
-                    <div id="errorName"></div>
+                    <div id="errorName" class="errorValidacion"></div>
 						
                     <% if (locals.errors && errors.firstname) { %>
                         <div class="errorValidacion">
@@ -26,7 +26,7 @@
                     <label for="name">Apellido</label>
                     <input class='control' type="text" id="lastName" name="lastname" placeholder="Ej. Perez"
                     value= "<%= locals.oldData ? oldData.lastname: null %>">
-                    <div id="errorLastName"></div>
+                    <div id="errorLastName" class="errorValidacion"></div>
 						
                     <% if (locals.errors && errors.lastname) { %>
                         <div class="errorValidacion">
@@ -38,7 +38,7 @@
                     <label for="email">Email</label>
                     <input class='control' type="email" id="email" name="email" placeholder="ejemplo@gmail.com" 
                     value= "<%= locals.oldData ? oldData.email: null %>">
-                    <div id="errorEmail"></div>
+                    <div id="errorEmail" class="errorValidacion"></div>
 						
                     <% if (locals.errors && errors.email) { %>
                         <div class="errorValidacion">
@@ -56,7 +56,7 @@
                     <label for="password">Contraseña</label>
                     <input class='control' type="password" id="password" name="password" placeholder="Contraseña" 
                     value= "<%= locals.oldData ? oldData.password: null %>">
-                    <div id="errorPassword"></div>
+                    <div id="errorPassword" class="errorValidacion"></div>
 						
                     <% if (locals.errors && errors.password) { %>
                         <div class="errorValidacion">
@@ -68,7 +68,7 @@
                     <label for="password">Repetir Contraseña</label>
                     <input class='control' type="password" id="checkPassword" name="checkpassword" placeholder="Contraseña"
                     value= "<%= locals.oldData ? oldData.checkpassword: null %>">
-                    <div id="errorCheck"></div>
+                    <div id="errorCheck" class="errorValidacion"></div>
 						
                     <% if (locals.errors && errors.checkpassword) { %>
                         <div class="errorValidacion">
@@ -79,9 +79,8 @@
                 <div>
                     <label for="avatar">Avatar</label>
                     <span class="image-value"></span>
-                    <input class='control' type="file" id="image-user" name="avatar" multiple accept=".jpg, .png, .jpeg, .svg"
-                    value= "<%= locals.oldData ? oldData.avatar: null %>">
-                    <div id="errorAvatar"></div>
+                    <input class='control' type="file" id="image-user" name="avatar" multiple accept=".jpg, .png, .jpeg, .svg">
+                    <div id="errorAvatar" class="errorValidacion"></div>
 						
                     <% if (locals.errors && errors.avatar) { %>
                         <div class="errorValidacion">
