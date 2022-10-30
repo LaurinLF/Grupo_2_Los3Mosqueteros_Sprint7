@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const path = require('path');
 const fs = require('fs');
+const { Op }= require('sequelize');
 const { validationResult } = require("express-validator");
 
 //const universalModel = require('../model/universalModel'); 
@@ -324,6 +325,33 @@ const productController = {
         } catch (error) {
             res.json(error.message)
         }
+    },
+
+    search: async (req,res) => {
+        try {
+            let busqueda = req.query.search;
+            const products = await db.Products.findAll({
+                    include: [db.Images],
+                    where: { description: { [Op.like]: '%' + busqueda + '%' } },
+            })
+            // const table = products.filter( product => product.id_category == "2" );
+            // const coffeeTable = products.filter( product => product.id_category == "4" );
+            // const desk = products.filter( product => product.id_category == "1" );
+            // const mirror = products.filter( product => product.id_category == "3" );
+            res.render('productos/search', {
+                title: "Search", 
+                products,
+                toThousand,
+                busqueda, 
+                //table,
+                //coffeeTable,
+                //desk,
+                //mirror    
+            })
+        } catch (error) {
+            res.json({error: error.message});
+        }
+        
     },
 
 }

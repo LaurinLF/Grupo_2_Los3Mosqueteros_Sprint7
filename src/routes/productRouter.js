@@ -26,5 +26,7 @@ router.put('/edit/:id', authMiddleware, upload.array("image"), productEditValida
 
 router.delete('/delete/:id', productController.destroy); 
 
+router.get('/search', productController.search);
+
 
 module.exports = router
