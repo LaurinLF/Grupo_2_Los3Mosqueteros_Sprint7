@@ -334,19 +334,11 @@ const productController = {
                     include: [db.Images],
                     where: { description: { [Op.like]: '%' + busqueda + '%' } },
             })
-            // const table = products.filter( product => product.id_category == "2" );
-            // const coffeeTable = products.filter( product => product.id_category == "4" );
-            // const desk = products.filter( product => product.id_category == "1" );
-            // const mirror = products.filter( product => product.id_category == "3" );
             res.render('productos/search', {
                 title: "Search", 
                 products,
                 toThousand,
                 busqueda, 
-                //table,
-                //coffeeTable,
-                //desk,
-                //mirror    
             })
         } catch (error) {
             res.json({error: error.message});

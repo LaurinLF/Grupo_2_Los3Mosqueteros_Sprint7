@@ -50,12 +50,7 @@
                     <label for="telephone">Teléfono</label>
                     <input class='control' type="text" id="telephone" name="telephone" placeholder="3510000000"
                     value= "<%= locals.oldData ? oldData.telephone: null %>">
-						
-                    <!-- <% if (locals.errors && errors.telephone) { %>
-                        <div class="errorValidacion">
-                            <p><%= errors.telephone.msg %></p>
-                        </div> 
-                    <% } %> -->
+					
                 </div>
                 <div>
                     <label for="password">Contraseña</label>
@@ -83,7 +78,8 @@
                 </div>
                 <div>
                     <label for="image">Avatar</label>
-                    <input class='control' type="file" id="image" name="avatar" multiple accept=".jpg, .png, .jpeg, .svg"
+                    <span class="image-value"></span>
+                    <input class='control' type="file" id="image-user" name="avatar" multiple accept=".jpg, .png, .jpeg, .svg"
                     value= "<%= locals.oldData ? oldData.image: null %>">
                     <div id="errorAvatar"></div>
 						

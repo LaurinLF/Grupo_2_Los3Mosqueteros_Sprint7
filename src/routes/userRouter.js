@@ -7,7 +7,7 @@ const userController = require("../controllers/userController")
 
 // Middleware - multer
 const multerMiddleware = require('../middleware/middlemulter');
-const upload = multerMiddleware('users', 'User');
+const upload = multerMiddleware('/images/users', 'User');
 
 // Express-Validator
 const userRegisterValidator = require("../middleware/userRegisterValidator");

@@ -2,7 +2,8 @@ window.addEventListener('load', function(){
 
     const form = document.querySelector('.loginRegisterForm')
     
-    const avatar = document.querySelector('input#image')
+    const avatar = document.querySelector('input#image-user')
+    const avatarValue = document.querySelector('.image-value')
     const firstName = document.querySelector('input#name')
     const lastName = document.querySelector('input#lastName')
     const email = document.querySelector('input#email')
@@ -20,7 +21,7 @@ window.addEventListener('load', function(){
     
     const RegExpEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i
     const RegExpPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i
-    const RegExpAvatar = /(.jpg|.jpeg|.png|.gif)$/i
+    const RegExpAvatar = /(\.jpg|\.jpeg|\.png|\.gif)$/i
 
     let errors = {}
     
@@ -40,7 +41,9 @@ window.addEventListener('load', function(){
         } else { 
             avatar.classList.remove('isInvalid')
             avatar.classList.add('isValid')
-            delete errors.avatar 
+            delete errors.avatar
+            let name = avatar.value.split('\\')
+            avatarValue.innerText = name[name.length-1];
         }
     
         errorAvatar.innerText = feedback
@@ -172,9 +175,9 @@ window.addEventListener('load', function(){
     form.addEventListener("submit", function(e){
         e.preventDefault()
     
+        avatarVal()
         firstNameVal()
         lastNameVal()
-        userNameValidation()
         emailVal()
         passwordVal()
         checkpasswordVal()
