@@ -12,7 +12,7 @@
             <form class="loginRegisterForm" action="/users/register" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="name">Nombre</label>
-                    <input class='control' type="text" id="name" name="firstName" placeholder="Ej. Juan"
+                    <input class='control' type="text" id="name" name="firstname" placeholder="Ej. Juan"
                     value= "<%= locals.oldData ? oldData.firstname: null %>">
                     <div id="errorName"></div>
 						
@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <label for="name">Apellido</label>
-                    <input class='control' type="text" id="lastName" name="lastName" placeholder="Ej. Perez"
+                    <input class='control' type="text" id="lastName" name="lastname" placeholder="Ej. Perez"
                     value= "<%= locals.oldData ? oldData.lastname: null %>">
                     <div id="errorLastName"></div>
 						
@@ -77,15 +77,15 @@
                     <% } %>
                 </div>
                 <div>
-                    <label for="image">Avatar</label>
+                    <label for="avatar">Avatar</label>
                     <span class="image-value"></span>
                     <input class='control' type="file" id="image-user" name="avatar" multiple accept=".jpg, .png, .jpeg, .svg"
-                    value= "<%= locals.oldData ? oldData.image: null %>">
+                    value= "<%= locals.oldData ? oldData.avatar: null %>">
                     <div id="errorAvatar"></div>
 						
-                    <% if (locals.errors && errors.image) { %>
+                    <% if (locals.errors && errors.avatar) { %>
                         <div class="errorValidacion">
-                            <p><%= errors.image.msg %></p>
+                            <p><%= errors.avatar.msg %></p>
                         </div> 
                     <% } %>
                 </div>
