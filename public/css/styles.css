@@ -1386,22 +1386,28 @@ h1.userSaludo {
 }
 
 .userInformacion{
-    width: 100%;
+    width: 80%;
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
     
 }
+.userAvatar{
+    margin: 0px 0px 50px 50px;
+    width: 50%;
+}
 
 .userAvatar img{
     width: 100%;
-    margin-bottom: 15px;
-    
+    /* margin-bottom: 15px;
+     */
 }
 
 .userPerfil{
-    width: 100%;
+    width: 60%;
+    margin-top: 40px;
     margin-bottom: 20px;
+    height: fit-content;
     box-shadow: 2px 2px 2px rgb(75, 75, 75);
     border: 1px solid #292E33;
     margin: 2em;

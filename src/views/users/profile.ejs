@@ -7,8 +7,11 @@
 
     <%- include("../partials/header.ejs") %>
     <main class="main-login-register">
+        <h2 class="title">PERFIL DE <%= locals.estaLogueado.firstname %></h2>
+        
         <h1 class= "userSaludo"> ¡Hola <%= locals.estaLogueado.firstname %>!</h1>
-		<div class="userInformacion">
+		
+        <div class="userInformacion">
             <figure class="userAvatar">
                 <img src="/images/users/<%= locals.estaLogueado.avatar %> " alt="Imagen de perfil">
                 <% console.log(locals.estaLogueado.avatar) %> 
