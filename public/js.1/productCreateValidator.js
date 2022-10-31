@@ -25,9 +25,9 @@ window.addEventListener('load', function(){
         // const errorValidacion = document.querySelector('#errorValidacion')
     
         if(name.value.trim() == ""){
-            feedback = "Debes ingresar el nombre del producto"
+            feedback = "Debes ingresar el del producto"
         } else if (name.value.length < 5){
-            feedback = "Tu nombre debe tener al menos 5 caracteres"
+            feedback = "El nombre debe tener al menos 5 caracteres"
         }
     
         
@@ -53,7 +53,7 @@ window.addEventListener('load', function(){
         if(description.value.trim() == ""){
             feedback = "Debes ingresar la descripción del producto"
         } else if (description.value.length < 20){
-            feedback = "Tu nombre debe tener al menos 20 caracteres"
+            feedback = "La descripción debe tener al menos 20 caracteres"
         } 
     
         

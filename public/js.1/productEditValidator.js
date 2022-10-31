@@ -53,7 +53,7 @@ window.addEventListener('load', function(){
         if(description.value.trim() == ""){
             feedback = "Debes ingresar la descripción del producto"
         } else if (description.value.length < 20){
-            feedback = "Tu nombre debe tener al menos 20 caracteres"
+            feedback = "La descripción debe tener al menos 20 caracteres"
         } 
     
         
