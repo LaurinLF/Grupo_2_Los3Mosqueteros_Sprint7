@@ -7,7 +7,7 @@
 
     <%- include("../partials/header.ejs") %>
     <main class="main-login-register">
-        <h2 class="title">PERFIL DE <%= locals.estaLogueado.firstname %></h2>
+        <h2 class="title">PERFIL DE <%= locals.estaLogueado.firstname.toUpperCase() %></h2>
         
         <h1 class= "userSaludo"> ¡Hola <%= locals.estaLogueado.firstname %>!</h1>
 		
