@@ -4,11 +4,12 @@ window.addEventListener('load', function(){
     const form = document.querySelector('.loginRegisterForm')
    
 
-  
+    // capturar los campos que seran verificados en el formulario de creación de producto
     const name = document.querySelector('input#name')
     const description = document.querySelector('textarea#description')
     const image = document.querySelector('input#image')
-   
+
+    // creacion de variables que saltaran en base a las validaciones
     const errorName = document.querySelector('div#errorName')
     const errorDescription = document.querySelector('div#errorDescription')
     const errorImage = document.querySelector('div#errorImage')
@@ -115,7 +116,7 @@ window.addEventListener('load', function(){
         imageVal()
         descriptionVal()
         nameValProduct()
-    
+        
         if(Object.keys(errors).length){
             e.preventDefault()
         }else{

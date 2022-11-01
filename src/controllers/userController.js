@@ -155,7 +155,7 @@ const userController = {
         
   },
 
-  // 5. Vista de usuario logueado, falta pagina y url
+  // 5. Vista de usuario logueado
   profile: (req, res) => {
       return res.render('users/profile',
       {

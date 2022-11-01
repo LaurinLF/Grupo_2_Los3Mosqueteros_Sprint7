@@ -2,6 +2,8 @@ const db = require('../database/models');
 const path = require('path');
 const fs = require('fs');
 const { Op }= require('sequelize');
+
+// validaciones de formularios
 const { validationResult } = require("express-validator");
 
 //const universalModel = require('../model/universalModel'); 
@@ -12,6 +14,7 @@ const productController = {
 
     listadoProductos: async (req,res) =>{
         try {
+            // peticion a base de datos haciendo uso de metodos de Sequelize
             const allProducts = await db.Products.findAll({
                 include: [db.Images]
             }) // productos todo lo que labura con el array de productos va con allproducts
@@ -49,6 +52,7 @@ const productController = {
 
     detail: async (req,res) =>{
         try {            
+            // captura de ID a traves de URL
             const id = +req.params.id;
             const product = await db.Products.findByPk(id,{
                 include:[db.Images, db.Colors, db.Categories]
@@ -68,7 +72,7 @@ const productController = {
     },
 
    // Create - Form to create
-
+    // viaja por get
     create: async (req,res) =>{
         try {
             const colors = await db.Colors.findAll();
@@ -135,11 +139,13 @@ const productController = {
         }
 
 	},*/
+
+    // viaja por post, en medio de la ruta, se ejecuta el middleware de productCreateValidation
     store: async (req, res) => {
 		try {
             const files = req.files
             let product = req.body
-            const resultadosValidaciones = validationResult(req);
+            const resultadosValidaciones = validationResult(req); // validacion de información completada en formulario
             if (resultadosValidaciones.isEmpty()){
                 let images = []
                 const nuevoProducto = await db.Products.create(product);
@@ -150,6 +156,7 @@ const productController = {
                     })
                 }
                 if (images.length > 0) {
+                    //  permite la creación de varios registros a la vez, con una sola consulta.
                     await db.Images.bulkCreate(images)
                     res.redirect('/products')
 
@@ -186,7 +193,7 @@ const productController = {
 	},
 
     // Update - Form to edit
-
+    // viaja por Get
     edit: async (req,res) =>{
         try {
             const colors = await db.Colors.findAll();
@@ -211,7 +218,7 @@ const productController = {
     },
 
     // Update - Method to update
-
+    // viaja por Post, en su ruta se encuentra el middleware productEditValidation
     update: async (req, res) => {
 		try {
             const files = req.files
@@ -250,8 +257,8 @@ const productController = {
                     categories
                 })
             }
-
-            let dataUpdate = req.body
+            // Carga de modificacion segun ID
+            let dataUpdate = req.body // captura lo que esta en el formulario cargado
             let images = []
             const product = await db.Products.update({
                 ...dataUpdate
@@ -291,7 +298,7 @@ const productController = {
 	},
 
 
-    // Update - Method to delete
+    // Delete - Method to delete
 
     destroy: async (req,res) => {
         try {
@@ -332,7 +339,7 @@ const productController = {
             let busqueda = req.query.search;
             const products = await db.Products.findAll({
                     include: [db.Images],
-                    where: { description: { [Op.like]: '%' + busqueda + '%' } },
+                    where: { description: { [Op.like]: '%' + busqueda + '%' } }, // uso de operador like para obtener resultados segun lo buscado
             })
             res.render('productos/search', {
                 title: "Search", 

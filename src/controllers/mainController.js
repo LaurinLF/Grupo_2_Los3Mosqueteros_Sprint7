@@ -9,10 +9,12 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const mainController = {
     home: async (req,res) =>{
         try {
+            // solicitud de informacion en la base de dato (Modelo de MVC)
             const allProductos = await db.Products.findAll({
                 include: [Images]
             })
             const saleProducts = allProductos.filter( product => product.discount != 0 );
+            // transpaso de informacion de base de datos a la visual (Vista de MVC)
             res.render("productos/home",
             {
                 title:"Home",
