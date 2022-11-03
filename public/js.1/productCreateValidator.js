@@ -4,11 +4,12 @@ window.addEventListener('load', function(){
     const form = document.querySelector('.loginRegisterForm')
    
 
-  
+    // capturar los campos que seran verificados en el formulario de creación de producto
     const name = document.querySelector('input#name')
     const description = document.querySelector('textarea#description')
     const image = document.querySelector('input#image')
-   
+
+    // creacion de variables que saltaran en base a las validaciones
     const errorName = document.querySelector('div#errorName')
     const errorDescription = document.querySelector('div#errorDescription')
     const errorImage = document.querySelector('div#errorImage')
@@ -25,9 +26,9 @@ window.addEventListener('load', function(){
         // const errorValidacion = document.querySelector('#errorValidacion')
     
         if(name.value.trim() == ""){
-            feedback = "Debes ingresar el nombre del producto"
+            feedback = "Debes ingresar el del producto"
         } else if (name.value.length < 5){
-            feedback = "Tu nombre debe tener al menos 5 caracteres"
+            feedback = "El nombre debe tener al menos 5 caracteres"
         }
     
         
@@ -53,7 +54,7 @@ window.addEventListener('load', function(){
         if(description.value.trim() == ""){
             feedback = "Debes ingresar la descripción del producto"
         } else if (description.value.length < 20){
-            feedback = "Tu nombre debe tener al menos 20 caracteres"
+            feedback = "La descripción debe tener al menos 20 caracteres"
         } 
     
         
@@ -115,7 +116,7 @@ window.addEventListener('load', function(){
         imageVal()
         descriptionVal()
         nameValProduct()
-    
+        
         if(Object.keys(errors).length){
             e.preventDefault()
         }else{

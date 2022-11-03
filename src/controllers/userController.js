@@ -155,6 +155,7 @@ const userController = {
         
     },
 
+<<<<<<< HEAD
     // 5. Vista de usuario logueado, falta pagina y url
     profile: (req, res) => {
         return res.render('users/profile',
@@ -162,6 +163,15 @@ const userController = {
             title: "Profile"
         });
     },
+=======
+  // 5. Vista de usuario logueado
+  profile: (req, res) => {
+      return res.render('users/profile',
+      {
+          title: "Profile"
+      });
+  },
+>>>>>>> 1e34148cdc4087c3c80919e09241d1dc7243ffba
     // 6. Logout user
     logout: (req, res) => {
         res.clearCookie('userEmail');

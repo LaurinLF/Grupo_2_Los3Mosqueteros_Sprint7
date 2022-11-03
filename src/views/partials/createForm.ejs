@@ -3,8 +3,10 @@
     <div>
         <label for="name">Nombre del Producto</label>
         <input class='control' type="text" id="name" name="name" placeholder="Mesa Ratona" value="<%= locals.oldData && oldData.name %>">
-        <div id="errorName" class="errorValidacion"></div>
+        <!-- <Validacion del Frontend> -->
+        <div id="errorName"  class="errorValidacion"></div> 
         <% if (locals.errors && errors.name) { %>
+            <!-- <Validacion del Backend> -->
             <div class="errorValidacion">
                 <p><%= errors.name.msg %></p>
             </div> 

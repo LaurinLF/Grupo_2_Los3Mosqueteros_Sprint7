@@ -7,24 +7,26 @@
 
     <%- include("../partials/header.ejs") %>
     <main class="main-login-register">
-        <h1 class= "userSaludo"> ¡Hola <%= locals.estaLogueado.firstname %>!</h1>
-		<div class="userInformacion">
-            <figure class="userAvatar">
-                <img src="/images/users/<%= locals.estaLogueado.avatar %> " alt="Imagen de perfil">
-                <% console.log(locals.estaLogueado.avatar) %> 
-
-            </figure>
-			<div class="userPerfil">
-                <p class="infoTitulo">Información del usuario</p>
-                <div class="nombreCompleto">
-                    <p class="dataTitle">Nombre y apellido</p>
-                    <p class="userName"><%= locals.estaLogueado.firstname%> <%= locals.estaLogueado.lastname %></p>
+        <h2 class="title">PERFIL DE <%= locals.estaLogueado.firstname.toUpperCase() %></h2>
+            <section class="detail-container">
+                <div class="detail-column-1">
+                    <div class="main-image">
+                        <img src="/images/users/<%= locals.estaLogueado.avatar %> " alt="Imagen de perfil">
+                    </div>
                 </div>
-                <div class="userDatabase">
-                    <p class="dataTitle">Email:</p>
-                    <p class="userEmail"> <%= locals.estaLogueado.email %></p>
+                <div class="detail-column-2">
+                    <div>
+                        <h2>Descripción</h2>
+                        <hr>
+                        <h3 class="detail-modelo"><%= locals.estaLogueado.firstname.toUpperCase() + ' ' + locals.estaLogueado.lastname.toUpperCase() %> </h3>
+                        <p class="detail-description">
+                        Información:<br>
+                                Email: <%= locals.estaLogueado.email %>.<br>
+                                Contraseña: ********.<br>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
         <a href="/users/editProfile/<%= locals.estaLogueado.id %>">
             <button class="button-edit">Editar <i class="fa-solid fa-file-pen"></i></button>

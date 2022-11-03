@@ -1391,22 +1391,28 @@ h1.userSaludo {
 }
 
 .userInformacion{
-    width: 100%;
+    width: 80%;
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
     
 }
+.userAvatar{
+    margin: 0px 0px 50px 50px;
+    width: 50%;
+}
 
 .userAvatar img{
     width: 100%;
-    margin-bottom: 15px;
-    
+    /* margin-bottom: 15px;
+     */
 }
 
 .userPerfil{
-    width: 100%;
+    width: 60%;
+    margin-top: 40px;
     margin-bottom: 20px;
+    height: fit-content;
     box-shadow: 2px 2px 2px rgb(75, 75, 75);
     border: 1px solid #292E33;
     margin: 2em;
@@ -1468,3 +1474,55 @@ h1.userSaludo {
 
     }
 
+    
+    main .detail-container {
+        width: 40vw;
+        box-shadow: 0px 0px 10px rgb(100, 100, 100);
+        margin: 0 auto;
+        background-color: #fff;
+        padding-bottom: 10px;
+    }
+    
+    main .detail-container .detail-column-1 {
+        max-width: 100%;
+    }
+    
+    main .detail-column-1 .main-image {
+        max-width: 100%;
+        max-height: 200px;
+        display: flex;
+        justify-content: center;
+        /* object-fit: contain; */
+    }
+    
+    main .detail-column-1 .main-image img {
+        /* width: 100%; */
+        max-width: 100%;
+        max-height: 200px;
+        padding: 30px 10px;
+    }
+    
+    main .detail-column-1 .secondary-images {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    
+    main .detail-column-1 .secondary-images img {
+        width: 20%;
+    }
+
+    .detail-column-2 .detail-description {
+        font-size: 14px;
+        padding: 10px;
+        margin-left: 20px
+    }
+
+    .detail-column-2 h2 {
+        margin-left: 30px;
+    }
+
+    .detail-column-2 h3 {
+        margin-left: 30px;
+    }
