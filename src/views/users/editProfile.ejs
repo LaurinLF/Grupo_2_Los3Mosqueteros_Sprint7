@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head.ejs -->
+<head>
+    <%- include ('../partials/head.ejs') %> 
+</head>
+<body>
+    <!-- Header.ejs -->
+    <%- include ('../partials/header.ejs')  %> 
+    <main class="main-login-register">
+        <div class="main-login-register">      
+            <div class="form-select">
+                <div class="select1">
+                <a>
+                <h2>Editar Cuenta</h2>
+                </a>
+                </div>
+            </div>
+            <form class="loginRegisterForm" action="/profile/edit/<%= locals.user && user.id %>?_method=PUT "  method="GET" enctype="multipart/form-data">
+                <div class="form-data">
+                    <label for="firstname"> Nombre: </label>
+                    <input 
+                        type="text" 
+                        name="firstname" 
+                        id="firstname"
+                        value= "<%=locals.oldData && oldData.firstname || locals.user && user.firstname%>" 
+                    ><div id="errorName" class="errorValidacion"></div>
+                    <% if (locals.errors && errors.firstname) { %>
+                        <div class="errorValidacion">
+                            <%= errors.firstname.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label for="lastName"> Apellido: </label>
+                    <input 
+                        type="text" 
+                        name="lastName" 
+                        id="lastName"
+                        value= "<%=locals.oldData && oldData.lastname || locals.user && user.lastname%>" 
+                    ><div id="errorLastName" class="errorValidacion"></div>
+                    <% if (locals.errors && errors.lastname) { %>
+                        <div class="errorValidacion">
+                            <%= errors.lastname.msg %>
+        
+                    <% } %>
+                </div>
+                <div>
+                    <label for="email"> Email: </label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        id="email"
+                        value= "<%=locals.oldData && oldData.email || locals.user && user.email%>" 
+                    ><div id="errorEmail" class="errorValidacion"></div>
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="errorValidacion">
+                            <%= errors.email.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label for="telephone">Teléfono</label>
+                    <input class='control' type="text" id="telephone" name="telephone" placeholder="3510000000"
+                    value= "<%= locals.oldData ? oldData.telephone: null %>">
+                </div>
+                <div>
+                    <label for="password"> Nueva Contraseña: </label>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        id="password"
+                    ><div id="passwordErrorFront" class="errorValidacion"></div>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="errorValidacion">
+                            <%= errors.password.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label for="checkpassword"> Confirmar contraseña: </label>
+                    <input 
+                        type="checkPassword" 
+                        name="checkPassword" 
+                        id="checkPassword"
+                    ><div id="errorCheck" class="errorValidacion"></div>
+                    <% if (locals.errors && errors.checkpassword) { %>
+                        <div class="errorValidacion">
+                            <%= errors.checkpassword.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div>
+                    <img src="/images/avatar/<%= user.avatar %>  " alt="">
+                    <label for="avatar"> Imagen de perfil: </label>
+                    <input 
+                        type="file" 
+                        name="avatar" 
+                        id="avatar" 
+                        accept=".jpg, .png .GIF .svg" 
+                    ><div id="errorAvatar" class="errorValidacion"></div>
+                    <% if (locals.errors && errors.avatar) { %>
+                        <div class="errorValidacion">
+                            <%= errors.avatar.msg %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="create-btn">
+                    <input class="button" type="submit" value="GUARDAR">
+                </div> 
+                <div class="button-delete">
+                    <form class="delete-form" action="/users/editProfile<%= user.id %>?_method=DELETE" method="POST">
+                    <button class="button-delete" type="submit">Eliminar</button>
+                    </form>
+                </div>      
+            </form>
+        </div>
+    </main>
+       <!-- Footer.ejs -->
+       <%- include ('../partials/footer.ejs') %> 
+</body>
+</html>

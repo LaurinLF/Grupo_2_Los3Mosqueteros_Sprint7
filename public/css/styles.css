@@ -750,6 +750,13 @@ h1::after{
 
 
 /* Ezequiel */
+
+.search-result {
+    display: flex; 
+    justify-content: center;
+    padding-top: 40px; 
+}
+
 div.errorValidacion {
     width: 100%;
 }
@@ -763,8 +770,6 @@ div.errorValidacion p {
 
 main section div.products {
     padding: 20px;
-
-
 }
 
 main section div.products article {
