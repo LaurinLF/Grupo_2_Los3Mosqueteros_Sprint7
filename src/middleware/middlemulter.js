@@ -9,7 +9,8 @@ const multerMiddleware = (folder, entity) => {
             cb(null, folderPath);
         },
         filename : (req, file, cb) => {
-            const fileName = `img${entity}_${Date.now()}${path.extname(file.originalname)}`;
+            //const fileName = `img${entity}_${Date.now()}${path.extname(file.originalname)}`;
+            const fileName = file.originalname;
             cb(null, fileName);
         }
     });
